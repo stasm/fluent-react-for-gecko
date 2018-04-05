@@ -10,7 +10,7 @@ const MOCK_RESOURCES = {
 };
 
 export default {
-    *generateContexts(locales, paths) {
+    async *generateContexts(locales, paths) {
         for (const locale of locales) {
             const mcx = new MessageContext(locale);
             for (const path of paths) {
