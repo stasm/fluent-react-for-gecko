@@ -25,7 +25,31 @@ export default class GeckoLocalizationProvider extends Component {
         messages: null
     };
 
-    async componentDidMount() {
+    componentDidMount() {
+        this.handleLanguageChange();
+        // In Gecko:
+        // Services.obs.addObserver(this, "intl:app-locales-changed", true);
+        window.addEventListener("languagechange", this);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("languagechange", this);
+    }
+
+    // In Gecko:
+    // observe(subject, topic, data)
+    handleEvent(evt) {
+        switch (evt.type) {
+            case "languagechange":
+                // XXX Just so that we can verify it's working.
+                appLocales.reverse();
+                return void this.handleLanguageChange();
+            default:
+                return;
+        }
+    }
+
+    async handleLanguageChange() {
         const {resourcePaths} = this.props;
         const contexts = L10nRegistry.generateContexts(
             appLocales, resourcePaths
