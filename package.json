@@ -1,0 +1,19 @@
+{
+  "name": "fluent-react-example-gecko-l10n-registry",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "^1.1.4"
+  },
+  "dependencies": {
+    "babel-polyfill": "6.26.0",
+    "fluent": "^0.6.0",
+    "fluent-react": "^0.6.0",
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build"
+  }
+}
