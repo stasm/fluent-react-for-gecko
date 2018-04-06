@@ -7,10 +7,9 @@ import App from './App';
 
 ReactDOM.render(
     <GeckoLocalizationProvider
-        userLocales={navigator.languages}
-        resourcePaths={["hello.ftl"]}
+        resourcePaths={["main.ftl", "hello.ftl"]}
     >
-        <App />
+        <App username="Anna" />
     </GeckoLocalizationProvider>,
     document.getElementById('root')
 );

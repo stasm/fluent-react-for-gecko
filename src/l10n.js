@@ -32,6 +32,12 @@ export default class GeckoLocalizationProvider extends Component {
         window.addEventListener("languagechange", this);
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.props.resourcePaths.join() !== prevProps.resourcePaths.join()) {
+            this.handleLanguageChange();
+        }
+    }
+
     componentWillUnmount() {
         window.removeEventListener("languagechange", this);
     }
