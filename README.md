@@ -1,8 +1,9 @@
-# fluent-gecko-react
+# fluent-react-for-gecko
 
-Gecko bindings for `fluent-react`.
+Gecko bindings for `fluent-react` in form of `<GeckoLocalizationProvider>`
+talking to Gecko's `L10nRegistry`.
 
 ## Development
 
-    $ npm i
+    $ npm install
     $ npm start
