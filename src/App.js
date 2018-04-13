@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Localized } from 'fluent-react/compat';
+import {Localized} from 'fluent-react/compat';
 
 export default class App extends Component {
     render() {

@@ -1,4 +1,4 @@
-import { MessageContext } from "fluent/compat";
+import {MessageContext} from "fluent/compat";
 
 const MOCK_RESOURCES = {
     "en-US": {
@@ -13,6 +13,7 @@ const MOCK_RESOURCES = {
     },
 };
 
+// A mock of Gecko's L10nRegistry
 export default {
     async *generateContexts(locales, paths) {
         for (const locale of locales) {

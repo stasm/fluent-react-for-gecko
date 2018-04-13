@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { LocalizationProvider } from "fluent-react/compat";
+import React, {Component} from "react";
+import {LocalizationProvider} from "fluent-react/compat";
 
 // In Gecko, you would do:
 //
