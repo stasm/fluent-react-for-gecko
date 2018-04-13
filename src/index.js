@@ -2,7 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import GeckoLocalizationProvider from './l10n';
+import GeckoLocalizationProvider from './GeckoLocalizationProvider';
 import App from './App';
 
 ReactDOM.render(
