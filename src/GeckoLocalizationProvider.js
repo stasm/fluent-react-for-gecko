@@ -26,15 +26,20 @@ export default class GeckoLocalizationProvider extends Component {
     };
 
     componentDidMount() {
-        this.handleLanguageChange();
+        this.handleChange();
         // In Gecko:
         // Services.obs.addObserver(this, "intl:app-locales-changed", true);
         window.addEventListener("languagechange", this);
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if (this.props.resourcePaths.join() !== prevProps.resourcePaths.join()) {
-            this.handleLanguageChange();
+        // Join the array of resource paths to make the comparison easy and
+        // avoid false positives and false negatives when _some_ elements of the
+        // array change but the array stays the same (by identity).
+        const prevResourcePaths = prevProps.resourcePaths.join();
+        const currentResourcePaths = this.props.resourcePaths.join();
+        if (currentResourcePaths !== prevResourcePaths) {
+            this.handleChange();
         }
     }
 
@@ -49,13 +54,13 @@ export default class GeckoLocalizationProvider extends Component {
             case "languagechange":
                 // XXX Just so that we can verify it's working.
                 appLocales.reverse();
-                return void this.handleLanguageChange();
+                return void this.handleChange();
             default:
                 return;
         }
     }
 
-    async handleLanguageChange() {
+    async handleChange() {
         const {resourcePaths} = this.props;
         const contexts = L10nRegistry.generateContexts(
             appLocales, resourcePaths
